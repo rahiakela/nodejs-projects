@@ -1,0 +1,10 @@
+{
+  "name": "node-typescript-server-application",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.0"
+  }
+}
