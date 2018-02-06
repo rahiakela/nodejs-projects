@@ -8,7 +8,7 @@ let getUsers = (req, res, next) => {
 };
 
 let getUser = (req, res, next) => {
-    models.users.findById(require.params.id)
+    models.users.findById(req.params.id)
             .populate("addresses")
             .then((user) => {
                 if (!user) {

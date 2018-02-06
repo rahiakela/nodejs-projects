@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-mongoose.connect('mongodb://rakela:ryaan1234@ds119585.mlab.com:19585/aws-mongodb-mlab-database');
+mongoose.connect('mongodb://localhost/test-chapter4');
 let db = mongoose.connection;
 db.once('open', () => {
   console.log('Database connection established...');
