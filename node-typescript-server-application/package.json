@@ -1,15 +1,26 @@
 {
   "name": "node-typescript-server-application",
   "version": "0.0.1",
+  "description": "An example book application based on TypeScript NodeJS implementation",
+  "main": "server.js",
+  "types": "server.d.ts",
   "author": {
     "name": "Rahi Akela"
   },
   "main": "simple-express-server.js",
   "dependencies": {
-    "express": "^4.16.2"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.0.7",
+    "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.16.8",
     "@types/express": "^4.11.1",
-    "@types/node": "^9.4.0"
+    "@types/method-override": "0.0.31",
+    "@types/mongoose": "^5.0.2",
+    "@types/node": "^9.4.0",
+    "@types/pug": "^2.0.4"
   }
 }
