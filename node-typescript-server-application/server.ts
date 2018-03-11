@@ -3,7 +3,7 @@ import * as http from 'http';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import * as methodOverride from 'method-override';
-import * as routes from './routes/index';
+import * as rootRouter from './routes/root.router';
 
 const portNumber = 9000;
 const app = express();
@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride());
 
 // routes
-app.get('/', routes.index);
+app.use('/', rootRouter);
 
 // use static file middleware for static files, such as .css files
 app.use(express.static('public/css'));
