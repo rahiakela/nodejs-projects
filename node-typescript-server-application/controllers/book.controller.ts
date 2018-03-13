@@ -2,11 +2,11 @@ import * as express from 'express';
 declare var next: (error: any) => void;
 
 
-export function  list(request: express.Request, response: express.Response) {
+let  list = (request: express.Request, response: express.Response) => {
     response.render('book', {'title': 'Books', 'books': []});
-}
+};
 
-export function submit(request: express.Request, response: express.Response) {
+let submit = (request: express.Request, response: express.Response) => {
     const newBook = {
         title: request.body.book_title,
         author: request.body.author,
@@ -14,4 +14,7 @@ export function submit(request: express.Request, response: express.Response) {
     };
 
     response.render('book', {title: 'Books', 'books': [newBook]});
-}
+};
+
+// export the function for other module import
+export {list, submit};

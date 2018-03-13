@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var bookController = require("../controllers/book.controller");
-var router = express.Router();
+var bookRouter = express.Router();
 /* GET /book */
-router.get('/', bookController.list);
+bookRouter.get('/', bookController.list);
 /* POST /book */
-router.post('/', bookController.submit);
-exports.default = router;
+bookRouter.post('/', bookController.submit);
+exports.default = bookRouter;

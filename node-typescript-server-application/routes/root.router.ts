@@ -1,13 +1,13 @@
 import * as express from 'express';
-import { default as indexRoute } from './index.route';
-import { default as bookRoutes} from './book.route';
+import indexRouter from './index.route';
+import bookRouter from './book.route';
 declare var next: (error: any) => void;
 
-let router = express.Router();
+let rootRouter = express.Router();
 
 // sub-routers
-router.use('/', indexRoute);
-router.use('/book', bookRoutes);
+rootRouter.use('/', indexRouter);
+rootRouter.use('/book', bookRouter);
 
 // Export the router
-export = router;
+export default rootRouter;

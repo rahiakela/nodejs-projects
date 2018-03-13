@@ -5,7 +5,7 @@ var http = require("http");
 var path = require("path");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
-var rootRouter = require("./routes/root.router");
+var root_router_1 = require("./routes/root.router");
 var portNumber = 9000;
 var app = express();
 app.set('port', portNumber);
@@ -21,6 +21,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 // routes
-app.use('/', rootRouter);
+app.use('/', root_router_1.default);
 // use static file middleware for static files, such as .css files
 app.use(express.static('public/css'));

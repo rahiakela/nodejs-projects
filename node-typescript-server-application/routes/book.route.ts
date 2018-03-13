@@ -2,11 +2,11 @@ import * as express from 'express';
 import * as bookController from '../controllers/book.controller';
 declare var next: (error: any) => void;
 
-let router = express.Router();
+let bookRouter = express.Router();
 
 /* GET /book */
-router.get('/', bookController.list);
+bookRouter.get('/', bookController.list);
 /* POST /book */
-router.post('/', bookController.submit);
+bookRouter.post('/', bookController.submit);
 
-export default router;
+export default bookRouter;

@@ -3,7 +3,7 @@ import * as http from 'http';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import * as methodOverride from 'method-override';
-import * as rootRouter from './routes/root.router';
+import rootRouter from './routes/root.router';
 
 const portNumber = 9000;
 const app = express();
