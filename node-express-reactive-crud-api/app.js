@@ -7,7 +7,6 @@ let mongoose = require('mongoose');
 let userRouter = require('./routes/routes-crud-api');
 let indexRouter = require('./routes/index');
 
-
 let app = express();
 
 // uncomment after placing your favicon in /public
