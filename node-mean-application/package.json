@@ -1,0 +1,40 @@
+{
+  "name": "mean-application",
+  "version": "1.0.0",
+  "description": "This application is based on Angular, MongoDB, Express and Node.JS and fornt-end/back-end is built using typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Angular",
+    "MongoDB",
+    "Express",
+    "Node.JS",
+    "TypeScript"
+  ],
+  "author": "Rahi Akela",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/errorhandler": "0.0.32",
+    "@types/mongodb": "^3.1.3",
+    "@types/mongoose": "^5.2.3",
+    "@types/morgan": "^1.7.35",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "run-sequence": "^2.2.1",
+    "ts-node": "^7.0.0",
+    "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.3",
+    "install": "^0.12.1",
+    "mongoose": "^5.2.6",
+    "morgan": "^1.9.0"
+  }
+}
