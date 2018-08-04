@@ -1,7 +1,9 @@
 import * as bodyParser from 'body-parser';
+import * as cors from 'cors';
 import * as errorHandler from 'errorhandler';
 import * as express from 'express';
 import * as morgan from 'morgan';
+import { HerosApi } from './api/heros';
 import mongoose = require('mongoose');
 
 /**
@@ -39,11 +41,44 @@ export class Server {
   }
 
   /**
-   * Create REST API routes
+   * REST API endpoints
    *
    * @class Server
    */
-  public api() {}
+  public api() {
+    let router = express.Router();
+
+    // configure CORS
+    const corsOptions: cors.CorsOptions = {
+      allowedHeaders: [
+        'Origin',
+        'X-Requested-With',
+        'Content-Type',
+        'Accept',
+        'X-Access-Token',
+      ],
+      credentials: true,
+      methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+      origin: 'http://localhost:4200',
+      preflightContinue: false,
+    };
+    router.use(cors(corsOptions));
+
+    // root request
+    router.get('/', (req: express.Request, res: express.Response, next: express.NextFunction) {
+      res.json({ announcement: "Welcome to our API." });
+      next();
+    });
+
+    // register API routes
+    HerosApi.route(router);
+
+    // wire up the REST API
+    this.app.use('/api', router);
+
+    // enable CORS pre-flight
+    router.options('*', cors(corsOptions));
+  }
 
   /**
    * Configure application
@@ -58,11 +93,7 @@ export class Server {
     this.app.use(bodyParser.json());
 
     // use query string parser middlware
-    this.app.use(
-      bodyParser.urlencoded({
-        extended: true,
-      })
-    );
+    this.app.use(bodyParser.urlencoded({ extended: true }));
 
     // connect to mongoose
     mongoose.connect('mongodb://localhost:27017/mean-material-reactive');
