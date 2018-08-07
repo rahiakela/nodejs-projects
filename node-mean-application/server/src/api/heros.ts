@@ -122,6 +122,7 @@ export class HerosApi {
         if (hero === null) {
           this.notFound(res, next);
         }
+        console.log(hero.toObject.name);
         // send json of hero object
         res.json(hero.toObject);
         next();
