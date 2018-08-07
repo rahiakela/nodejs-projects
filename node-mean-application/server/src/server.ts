@@ -65,10 +65,13 @@ export class Server {
     router.use(cors(corsOptions));
 
     // root request
-    router.get('/', (req: express.Request, res: express.Response, next: express.NextFunction) {
-      res.json({ announcement: "Welcome to our API." });
-      next();
-    });
+    router.get(
+      '/',
+      (req: express.Request, res: express.Response, next: express.NextFunction) => {
+        res.json({ announcement: 'Welcome to our API.' });
+        next();
+      }
+    );
 
     // register API routes
     HerosApi.route(router);

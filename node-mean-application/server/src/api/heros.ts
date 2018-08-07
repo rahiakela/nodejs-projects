@@ -19,10 +19,18 @@ export class HerosApi {
       }
     );
 
-    // GET
+    // GET a lis of hero
     router.get('/heros', (req: Request, res: Response, next: NextFunction) => {
       heroApi.list(req, res, next);
     });
+
+    // GET a hero
+    router.get(
+      '/heros/:id([0-9a-f]{24})',
+      (req: Request, res: Response, next: NextFunction) => {
+        heroApi.get(req, res, next);
+      }
+    );
 
     // POST
     router.post('/heros', (req: Request, res: Response, next: NextFunction) => {
@@ -53,7 +61,7 @@ export class HerosApi {
         res.json(hero.toObject);
         next();
       })
-      .catch((err: any) => next(err));
+      .catch(next);
   }
 
   /**
@@ -88,7 +96,7 @@ export class HerosApi {
           })
           .catch((err: any) => next(err));
       })
-      .catch((err: any) => next(err));
+      .catch(next);
   }
 
   /**
@@ -118,7 +126,7 @@ export class HerosApi {
         res.json(hero.toObject);
         next();
       })
-      .catch((err: any) => next(err));
+      .catch(next);
   }
 
   /**

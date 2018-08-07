@@ -2,7 +2,8 @@ const gulp = require('gulp'),
   del = require('del'),
   runSequence = require('run-sequence'),
   sourceMaps = require('gulp-sourcemaps'),
-  tsc = require('gulp-typescript');
+  tsc = require('gulp-typescript'),
+  gulpMocha = require('gulp-mocha');
 
 /**
  * Remove dist directory.
@@ -28,9 +29,16 @@ gulp.task('build:express', () => {
 
   return result.js.pipe(sourceMaps.write()).pipe(gulp.dest('dist/server'));
 });
+
+/**
+ * Run the test.
+ */
+gulp.task('test:server', () => {
+  gulp.src('dist/server/tests', { read: false }).pipe(gulpMocha());
+});
 /**
  * Build the project.
  */
 gulp.task('default', done => {
-  runSequence('clean', 'copy', 'build:express');
+  runSequence('clean', 'copy', 'build:express', 'test:server');
 });
