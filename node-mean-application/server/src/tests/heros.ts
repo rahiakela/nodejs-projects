@@ -96,10 +96,10 @@ class HerosTest {
   public get() {
     return chai
       .request(HerosTest.server)
-      .get(`${HerosTest.BASE_URI}/${HerosTest.hero._id}`)
+      .get(`${HerosTest.BASE_URI}/5b691f3c6916cd262ca49990`)
       .then((response: any) => {
         response.should.have.status(200);
-        response.body.should.be.an('object');
+        response.body.should.be.a('object');
         response.body.should.have.property('name').eql(HerosTest.hero.name);
       });
   }
@@ -113,7 +113,7 @@ class HerosTest {
       .then((response: any) => {
         response.should.have.status(200);
         response.body.should.be.an('array');
-        response.body.should.have.lengthOf(5);
+        response.body.should.have.lengthOf(3);
       });
   }
 
@@ -128,7 +128,7 @@ class HerosTest {
       .send(data)
       .then((response: any) => {
         response.should.have.status(200);
-        response.body.should.be.an('object');
+        response.body.should.be.a('object');
         response.body.should.have.a.property('_id');
         response.body.should.have.property('name').eql(data.name);
 
