@@ -1,11 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatIconModule, MatToolbarModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule,
+} from '@angular/material';
+import { LayoutComponent } from './layout/layout.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
-  imports: [CommonModule, MatIconModule, MatToolbarModule, MatButtonModule],
-  declarations: [ToolbarComponent],
+  imports: [
+    CommonModule,
+    FlexLayoutModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatListModule,
+  ],
+  declarations: [ToolbarComponent, LayoutComponent],
   exports: [ToolbarComponent],
 })
 export class SharedModule {}
