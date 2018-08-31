@@ -5,6 +5,8 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { reducer } from './app.reducers';
+import { HerosService } from './core/services/heros-service';
+import { HerosModule } from './heros/heros.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -13,10 +15,11 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HerosModule,
     SharedModule,
     StoreModule.forRoot({ shared: reducer }),
   ],
-  providers: [],
+  providers: [HerosService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
