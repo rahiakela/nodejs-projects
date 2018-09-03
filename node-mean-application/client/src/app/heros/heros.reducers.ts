@@ -1,5 +1,5 @@
 import { Hero } from '../models/hero';
-import { Actions, HeroActions } from './heros.actions';
+import { ActionTypes, HeroActions } from './heros.actions';
 
 export interface State {
   error?: any;
@@ -10,15 +10,15 @@ const initialState: State = {
   heros: [],
 };
 
-export function reducer(state = initialState, action: Actions): State {
+export function reducer(state = initialState, action: HeroActions): State {
   switch (action.type) {
-    case HeroActions.LOAD_HEROS:
+    case ActionTypes.LOAD_HEROS:
       return { ...state, ...{ error: undefined, heros: [] } };
 
-    case HeroActions.LOAD_HEROS_ERROR:
+    case ActionTypes.LOAD_HEROS_ERROR:
       return { ...state, ...{ error: action.payload.error } };
 
-    case HeroActions.LOAD_HEROS_SUCCESS:
+    case ActionTypes.LOAD_HEROS_SUCCESS:
       return { ...state, ...{ heros: action.payload.heros } };
 
     default:

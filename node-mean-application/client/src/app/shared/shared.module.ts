@@ -19,9 +19,10 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
+    MatIconModule,
     MatListModule,
   ],
   declarations: [ToolbarComponent, LayoutComponent],
-  exports: [ToolbarComponent],
+  exports: [ToolbarComponent, LayoutComponent],
 })
 export class SharedModule {}

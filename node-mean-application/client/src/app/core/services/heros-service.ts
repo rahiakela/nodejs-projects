@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 import { Hero } from '../../models/hero';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class HerosService {
   constructor(protected http: HttpClient) {}
 
   public create(hero: Hero): Observable<Hero> {
-    return this.http.post(this.URL, hero).map(this.extractObject);
+    return this.http.post(this.URL, hero).pipe(map(this.extractObject));
   }
 
   private extractObject(res: Response): Object {
@@ -22,18 +22,18 @@ export class HerosService {
   }
 
   public delete(hero: Hero): Observable<Hero> {
-    return this.http.delete(`${this.URL}/${hero._id}`).map(result => hero);
+    return this.http.delete(`${this.URL}/${hero._id}`).pipe(map(result => hero));
   }
 
   public get(id: string): Observable<Hero> {
-    return this.http.get(`${this.URL}/${id}`).map(this.extractObject);
+    return this.http.get(`${this.URL}/${id}`).pipe(map(this.extractObject));
   }
 
   public list(): Observable<Array<Hero>> {
-    return this.http.get(this.URL).map(response => response.json() || []);
+    return this.http.get(this.URL).pipe(map((response: any) => response.json() || []));
   }
 
   public update(hero: Hero): Observable<Hero> {
-    return this.http.put(`${this.URL}/${hero._id}`, hero).map(this.extractObject);
+    return this.http.put(`${this.URL}/${hero._id}`, hero).pipe(map(this.extractObject));
   }
 }
